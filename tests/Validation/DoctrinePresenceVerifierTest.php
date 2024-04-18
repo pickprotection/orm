@@ -2,6 +2,7 @@
 
 use Doctrine\ORM\AbstractQuery;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\Query;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 use LaravelDoctrine\ORM\Validation\DoctrinePresenceVerifier;
@@ -41,7 +42,7 @@ class DoctrinePresenceVerifierTest extends TestCase
         $this->em       = m::mock(EntityManagerInterface::class);
         $this->registry = m::mock(ManagerRegistry::class);
         $this->builder  = m::mock(QueryBuilder::class);
-        $this->query    = m::mock(AbstractQuery::class);
+        $this->query    = m::mock(Query::class);
 
         $this->verifier = new DoctrinePresenceVerifier(
             $this->registry
@@ -252,7 +253,7 @@ class DoctrinePresenceVerifierTest extends TestCase
         $this->builder->shouldReceive('where')
                       ->once();
 
-        $this->builder->shouldReceive('expr')->andReturn($this->builder);
+        $this->builder->shouldReceive('expr')->andReturn(new Query\Expr());
         $this->builder->shouldReceive('in')->with("e.email", ['test@email.com']);
 
         $this->builder->shouldReceive('getQuery')

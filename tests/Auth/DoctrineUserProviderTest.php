@@ -161,6 +161,11 @@ class AuthenticableMock implements AuthenticatableContract
     {
         $this->password = 'myPassword';
     }
+
+    public function getAuthPasswordName()
+    {
+        return 'password';
+    }
 }
 
 class AuthenticableWithNonEmptyConstructorMock implements AuthenticatableContract
@@ -170,5 +175,10 @@ class AuthenticableWithNonEmptyConstructorMock implements AuthenticatableContrac
     public function __construct(array $passwords)
     {
         $this->password = $passwords[0];
+    }
+
+    public function getAuthPasswordName()
+    {
+        return 'password';
     }
 }

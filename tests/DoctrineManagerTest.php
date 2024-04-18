@@ -211,7 +211,7 @@ class MyDoctrineExtender implements DoctrineExtender
      */
     public function extend(Configuration $configuration, Connection $connection, EventManager $eventManager)
     {
-        (new DoctrineManagerTest)->assertExtendedCorrectly($configuration, $connection, $eventManager);
+        (new DoctrineManagerTest('MyDoctrineExtender'))->assertExtendedCorrectly($configuration, $connection, $eventManager);
     }
 }
 

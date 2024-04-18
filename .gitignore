@@ -5,6 +5,7 @@ composer.lock
 .php_cs.cache
 .php-cs-fixer.cache
 .phpunit.result.cache
+.phpunit.cache
 
 /tests/Stubs/storage/framework/views/*
 !/tests/Stubs/storage/framework/views/.gitkeep

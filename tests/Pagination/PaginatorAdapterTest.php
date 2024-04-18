@@ -88,14 +88,14 @@ class PaginatorAdapterTest extends TestCase
         $config->shouldReceive('getQuoteStrategy')->andReturn(new DefaultQuoteStrategy);
 
         $metadata->fieldMappings = [
-            'id' => [
+            'id' => (object) [
                 'fieldName'  => 'id',
                 'columnName' => 'id',
                 'type'       => Types::INTEGER,
                 'id'         => true,
                 'options'    => ['unsigned' => true],
             ],
-            'name' => [
+            'name' => (object) [
                 'fieldName'  => 'name',
                 'columnName' => 'name',
                 'type'       => Types::STRING,
