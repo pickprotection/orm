@@ -88,9 +88,6 @@ class ExtensionManagerTest extends TestCase
         $this->em->shouldReceive('getEventManager')->once()->andReturn($this->evm);
         $this->em->shouldReceive('getConfiguration')->once()->andReturn($this->configuration);
 
-        $this->configuration->shouldReceive('getMetadataDriverImpl')->once()->andReturn($this->driver);
-        $this->driver->shouldReceive('getReader')->once()->andReturn($this->reader);
-
         // Register
         $this->container->shouldReceive('make')->with(ExtensionMock::class)->once()->andReturn(new ExtensionMock);
         $this->manager->register(ExtensionMock::class);
@@ -112,9 +109,6 @@ class ExtensionManagerTest extends TestCase
         $this->em->shouldReceive('getEventManager')->twice()->andReturn($this->evm);
         $this->em->shouldReceive('getConfiguration')->twice()->andReturn($this->configuration);
 
-        $this->configuration->shouldReceive('getMetadataDriverImpl')->twice()->andReturn($this->driver);
-        $this->driver->shouldReceive('getReader')->twice()->andReturn($this->reader);
-
         // Register
         $this->container->shouldReceive('make')->with(ExtensionMock::class)->twice()->andReturn(new ExtensionMock);
         $this->manager->register(ExtensionMock::class);
@@ -135,9 +129,6 @@ class ExtensionManagerTest extends TestCase
 
         $this->em->shouldReceive('getEventManager')->twice()->andReturn($this->evm);
         $this->em->shouldReceive('getConfiguration')->twice()->andReturn($this->configuration);
-
-        $this->configuration->shouldReceive('getMetadataDriverImpl')->twice()->andReturn($this->driver);
-        $this->driver->shouldReceive('getReader')->twice()->andReturn($this->reader);
 
         // Register
         $this->container->shouldReceive('make')->with(ExtensionMock::class)->once()->andReturn(new ExtensionMock);
@@ -163,9 +154,6 @@ class ExtensionManagerTest extends TestCase
         $this->em->shouldReceive('getEventManager')->once()->andReturn($this->evm);
         $this->em->shouldReceive('getConfiguration')->once()->andReturn($this->configuration);
 
-        $this->configuration->shouldReceive('getMetadataDriverImpl')->once()->andReturn($this->driver);
-        $this->driver->shouldReceive('getReader')->once()->andReturn($this->reader);
-
         // Register
         $this->container->shouldReceive('make')->with(ExtensionMock::class)->times(3)->andReturn(new ExtensionMock);
         $this->manager->register(ExtensionMock::class);
@@ -187,9 +175,6 @@ class ExtensionManagerTest extends TestCase
 
         $this->em->shouldReceive('getEventManager')->once()->andReturn($this->evm);
         $this->em->shouldReceive('getConfiguration')->once()->andReturn($this->configuration);
-
-        $this->configuration->shouldReceive('getMetadataDriverImpl')->once()->andReturn($this->driver);
-        $this->driver->shouldReceive('getReader')->once()->andReturn($this->reader);
 
         $collection = m::mock(FilterCollection::class);
 

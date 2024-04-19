@@ -91,7 +91,6 @@ class ExtensionManager
         $extension->addSubscribers(
             $evm,
             $em,
-            $configuration->getMetadataDriverImpl()->getReader()
         );
 
         if (is_array($extension->getFilters())) {
